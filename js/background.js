@@ -61,7 +61,7 @@ function isDST(time) {
 }
 
 async function checkTab(tabId) {
-  const CYCLE = 5000;
+  const CYCLE = 10000;
 
   const tab = await chrome.tabs.get(tabId)
 
