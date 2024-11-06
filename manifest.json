@@ -1,0 +1,40 @@
+{
+  "name": "Twitch Points Clicker Chrome Extension",
+  "version": "1.1.0",
+  "description": "Redeems Twitch points",
+  "manifest_version": 3,
+  "author": "Hoang Anh Tuan",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Series Tracker"
+  },
+  "host_permissions": [
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.twitch.tv/*"
+      ],
+      "js": [
+        "js/messageListener.js"
+      ]
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "storage",
+    "scripting",
+    "activeTab",
+    "webNavigation"
+  ],
+  "icons": {
+    "16": "img/icon-16.png",
+    "32": "img/icon-32.png",
+    "48": "img/icon-48.png",
+    "128": "img/icon-128.png"
+  }
+}
