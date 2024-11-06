@@ -2,18 +2,18 @@ chrome.runtime.onMessage.addListener(request => {
   if (request.action === "updateTime") {
     const headerEl = document.getElementById("live-channel-stream-information");
     if(headerEl.querySelector("#timeUpdated") === null) {
-      headerEl.appendChild(createDiv("timeUpdated", "Last update time"));
+      headerEl.appendChild(createDiv("timeUpdated", "Last update time:"));
     }
 
     if(headerEl.querySelector("#timeClicked") === null) {
-      headerEl.appendChild(createDiv("timeClicked", "Last click time"));
+      headerEl.appendChild(createDiv("timeClicked", "Last click time:"));
     }
 
     if("clicked" in request && request.clicked) {
-      document.getElementById("timeClicked").textContent = request.time;
+      document.getElementById("timeClicked").textContent = `Last click time: ${request.time}`;
     }
 
-    document.getElementById("timeUpdated").textContent = request.time;
+    document.getElementById("timeUpdated").textContent = `Last update time: ${request.time}`;
   }
 });
 
